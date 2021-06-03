@@ -84,3 +84,5 @@ production:
   database: test_guru_production
   username: 
   password:
+  host:
+  port:
