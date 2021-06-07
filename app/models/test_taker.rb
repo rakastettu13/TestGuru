@@ -1,0 +1,2 @@
+class TestTaker < ApplicationRecord
+end
