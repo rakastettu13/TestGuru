@@ -1,6 +1,6 @@
 class Test < ApplicationRecord
   def self.title_desc(category)
-    Test.joins('JOIN categories ON categories.id = category_id')
-        .where('categories.title = ?', category).select(:title).order(title: :desc)
+    joins('JOIN categories ON categories.id = category_id')
+      .where('categories.title = ?', category).order(title: :desc).pluck(:title)
   end
 end
