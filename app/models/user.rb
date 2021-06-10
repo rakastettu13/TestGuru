@@ -3,8 +3,7 @@ class User < ApplicationRecord
   has_many :test_takers, dependent: :destroy
   has_many :tests, through: :test_takers
 
-  def find_tests(level)
-    Test.joins(:test_takers)
-        .where({ level: level, test_takers: { user: self } })
+  def tests_by_level(level)
+    Test.takers_by_level(self, level)
   end
 end
