@@ -11,8 +11,8 @@ class Test < ApplicationRecord
   validates :level, numericality: { only_integer: true, greater_than: 0 }
 
   scope :by_level, ->(levels) { where(level: levels) }
-  scope :easy,   -> { by_level(0...2) }
-  scope :medium, -> { by_level(2...5) }
+  scope :easy,   -> { by_level(0..1) }
+  scope :medium, -> { by_level(2..4) }
   scope :hard,   -> { by_level(5...Float::INFINITY) }
   scope :by_category, ->(category) { joins(:category).where(categories: { title: category }).order(title: :desc) }
   scope :takers_by_level, ->(user, level) { joins(:test_takers).by_level(level).where(test_takers: { user: user }) }
