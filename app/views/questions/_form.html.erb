@@ -1,3 +1,5 @@
+<h1><%= question_header(@test) %></h1>
+
 <%= form_with model: model do |form| %>
 
   <p>
@@ -7,3 +9,7 @@
 
   <p><%= form.submit %></p>
 <% end %>
+
+<p>
+  <%= link_to "Назад", test_path(@question.test_id) %>
+</p>
