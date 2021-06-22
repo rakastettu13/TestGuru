@@ -5,7 +5,7 @@ class QuestionsController < ApplicationController
   rescue_from ActiveRecord::RecordNotFound, with: :rescue_with_question_not_found
 
   def index
-    render inline: '<% @test.questions.find_each do |question| %><p><%= question.body %></p><% end %>'
+    redirect_to @test
   end
 
   def show; end
@@ -37,7 +37,7 @@ class QuestionsController < ApplicationController
 
   def destroy
     @question.destroy
-    redirect_to test_questions_path(@question.test_id)
+    redirect_to test_path(@question.test_id)
   end
 
   private
