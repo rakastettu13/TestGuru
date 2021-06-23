@@ -1,9 +1,9 @@
 module QuestionsHelper
-  def question_header(test)
-    action = if params[:action] == 'new'
+  def question_header(question, test)
+    action = if question.new_record?
                'Create new'
              else
-               params[:action].capitalize
+               'Edit'
              end
     "#{action} #{test.title} question"
   end
