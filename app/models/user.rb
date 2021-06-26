@@ -9,4 +9,8 @@ class User < ApplicationRecord
   def tests_by_level(level)
     Test.takers_by_level(self, level)
   end
+
+  def test_taker(test)
+    test_takers.order(id: :desc).find_by(test_id: test.id)
+  end
 end
