@@ -5,7 +5,15 @@ class TestTakersController < ApplicationController
 
   def result; end
 
-  def update; end
+  def update
+    @test_taker.accept!(params[:answer_ids])
+
+    if @test_taker.completed?
+      redirect_to result_test_taker_path(@test_taker)
+    else
+      render :show
+    end
+  end
 
   private
 

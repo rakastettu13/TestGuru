@@ -1,3 +1,17 @@
 <h1>Pass the <%= @test_taker.test.title %> test</h1>
 
 <h2><%= @test_taker.current_question.body %></h2>
+
+<p>Текущий вопрос: <%= @test_taker.current_question_number %></p>
+<p>Всего вопросов: <%= @test_taker.test.questions.count %></p>
+
+<%= form_with url: test_taker_path(@test_taker), local: true, method: :put do |form| %>
+  <%= form.collection_check_boxes :answer_ids, @test_taker.current_question.answers, :id, :body, include_hidden: false do |b| %>
+    <p>
+      <%= b.check_box id: 'answer_ids_#{b.object.id}' %>
+      <%= b.label %>
+    </p>
+  <% end %>
+
+  <p><%= form.submit 'Следующий вопрос' %></p>
+<% end %>
