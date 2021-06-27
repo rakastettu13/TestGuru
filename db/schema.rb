@@ -44,6 +44,7 @@ ActiveRecord::Schema.define(version: 2021_06_26_011032) do
     t.datetime "created_at", precision: 6, null: false
     t.datetime "updated_at", precision: 6, null: false
     t.bigint "current_question_id"
+    t.integer "current_question_number", default: 0, null: false
     t.integer "correct_questions", default: 0, null: false
     t.index ["current_question_id"], name: "index_test_takers_on_current_question_id"
     t.index ["test_id"], name: "index_test_takers_on_test_id"
