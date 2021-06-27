@@ -13,6 +13,6 @@
                   method: :delete,
                   data: { confirm: "Вы уверенны?" } %>
     </td>
-    <td><%= link_to "Назад", test_path(@answer.question_id) %></td>
+    <td><%= link_to "Назад", question_path(@answer.question_id) %></td>
   </tr>
 </table>
