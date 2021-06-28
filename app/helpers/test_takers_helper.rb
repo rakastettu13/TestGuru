@@ -1,9 +1,9 @@
 module TestTakersHelper
-  def message(percentage_of_passing)
-    text = if percentage_of_passing >= 85
-             "<p style='color:Green'>#{percentage_of_passing}% </p><p>Тест пройден</p>"
+  def message(test_taker)
+    text = if test_taker.successful?
+             "<p style='color:Green'>#{test_taker.percentage_of_passing}% </p><p>Тест пройден</p>"
            else
-             "<p style='color:Red'>#{percentage_of_passing}% </p><p>Тест не пройден</p>"
+             "<p style='color:Red'>#{test_taker.percentage_of_passing}% </p><p>Тест не пройден</p>"
            end
     text.html_safe
   end
