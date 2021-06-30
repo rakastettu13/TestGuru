@@ -1,0 +1,18 @@
+<h1><%= @answer.question.body %></h1>
+
+<h2><%= @answer.body %></h2>
+
+<p><%= @answer.correct %></p>
+
+<table>
+  <tr>
+    <td><%= link_to "Изменить", edit_answer_path(@answer) %></td>
+    <td>
+      <%= link_to "Удалить",
+                  @answer,
+                  method: :delete,
+                  data: { confirm: "Вы уверенны?" } %>
+    </td>
+    <td><%= link_to "Назад", question_path(@answer.question_id) %></td>
+  </tr>
+</table>

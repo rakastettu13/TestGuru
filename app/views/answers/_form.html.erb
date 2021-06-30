@@ -1,0 +1,18 @@
+<%= form_with model: [@question, @answer] do |form| %>
+
+  <p>
+    <%= form.label :body %><br>
+    <%= form.text_area :body, id: :answer_body, rows: 7, cols: 60 %><br>
+  </p>
+
+  <p>
+    <%= form.label :correct %><br>
+    <%= form.check_box :correct, id: :answer_correct %><br>
+  </p>
+
+  <p><%= form.submit %></p>
+<% end %>
+
+<p>
+  <%= link_to "Назад", question_path(@answer.question_id) %>
+</p>

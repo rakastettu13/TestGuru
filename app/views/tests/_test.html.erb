@@ -2,4 +2,5 @@
   <td><%= link_to test.title, test_path(test.id) %></td>
   <td align='center'><%= test.level %></td>
   <td align='center'><%= test.questions.count %></td>
+  <td><%= button_to 'Start', start_test_path(test) %></td>
 </tr>

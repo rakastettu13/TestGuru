@@ -1,14 +1,21 @@
 <h1><%= @question.body %></h1>
 
+<h2>Ответы</h2>
+
+<ol>
+  <%= render @question.answers %>
+</ol>
+
 <table>
   <tr>
-    <td><%= link_to "Изменить", edit_question_path(@question.id) %></td>
+    <td><%= link_to "Изменить", edit_question_path(@question) %></td>
     <td>
       <%= link_to "Удалить",
                   @question,
                   method: :delete,
                   data: { confirm: "Вы уверенны?" } %>
     </td>
+    <td><%= link_to "Добавить ответ",  new_question_answer_path(@question)%></td>
     <td><%= link_to "Назад", test_path(@question.test_id) %></td>
   </tr>
 </table>
