@@ -8,8 +8,19 @@ module ApplicationHelper
   end
 
   def flash_message(method)
-    if flash[method]
-      content_tag :p, flash[method], class: 'method'
+    tag.p(flash[method], class: 'method') if flash[method]
+  end
+
+  def user_links
+    if logged_in?
+      tag.b("Welcome, #{current_user.name} Guru!") +
+        link_to('Выйти',
+                logout_path,
+                method: :delete,
+                data: { confirm: 'Вы уверенны, что хотите выйти?' })
+    else
+      link_to('Войти', login_path) +
+        link_to('Зарегистрироваться', signup_path)
     end
   end
 end
