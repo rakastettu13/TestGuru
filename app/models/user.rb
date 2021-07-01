@@ -3,6 +3,9 @@ class User < ApplicationRecord
   has_many :test_takers, dependent: :destroy
   has_many :tests, through: :test_takers
 
+  validates :name, presence: true
+  validates :email, presence: true, uniqueness: true, format: { with: /\A[\w.+-]+@\w+\.\w+\z/ }
+
   has_secure_password
 
   def tests_by_level(level)
