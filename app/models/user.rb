@@ -4,7 +4,7 @@ class User < ApplicationRecord
   has_many :tests, through: :test_takers
 
   validates :name, presence: true
-  validates :email, presence: true, uniqueness: true, format: { with: /\A[\w.+-]+@\w+\.\w+\z/ }
+  validates :email, presence: true, uniqueness: true, format: { with: URI::MailTo::EMAIL_REGEXP }
 
   has_secure_password
 
