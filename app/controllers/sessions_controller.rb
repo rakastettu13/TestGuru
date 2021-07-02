@@ -23,7 +23,6 @@ class SessionsController < ApplicationController
   private
 
   def redirect_back_after_authenticate
-    redirect_to cookies[:return_to_url] || root_path
-    cookies.delete(:return_to_url)
+    redirect_to cookies.delete(:return_to_url) || root_path
   end
 end
