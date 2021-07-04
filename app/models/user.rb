@@ -13,6 +13,7 @@ class User < ApplicationRecord
 
   validates :name, presence: true
   validates :email, presence: true, uniqueness: true, format: { with: URI::MailTo::EMAIL_REGEXP }
+  validates :type, presence: true, inclusion: { in: %w[User Admin] }
 
   def tests_by_level(level)
     Test.takers_by_level(self, level)
