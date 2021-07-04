@@ -7,20 +7,16 @@ module ApplicationHelper
     link_to(repo, "https://github.com/#{author}/#{repo}", target: '_blank', rel: 'nofollow noopener')
   end
 
-  def flash_message(method)
-    tag.p(flash[method], class: 'method') if flash[method]
-  end
-
   def user_links
-    if logged_in?
+    if user_signed_in?
       tag.b("Welcome, #{current_user.name} Guru!") +
         link_to('Выйти',
-                logout_path,
+                destroy_user_session_path,
                 method: :delete,
                 data: { confirm: 'Вы уверенны, что хотите выйти?' })
     else
-      link_to('Войти', login_path) +
-        link_to('Зарегистрироваться', signup_path)
+      link_to('Войти', new_user_session_path) +
+        link_to('Зарегистрироваться', new_user_registration_path)
     end
   end
 end
