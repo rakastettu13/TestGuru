@@ -1,0 +1,11 @@
+<h1><%= @test.title %></h1>
+
+<table>
+    <%= render @test.questions %>
+
+    <tr>
+      <td colspan = '3'><%= link_to "Создать новый вопрос", new_admin_test_question_path(params[:id]) %></td>
+    </tr>
+</table>
+
+<p><%= link_to "Назад", admin_tests_path %></p>

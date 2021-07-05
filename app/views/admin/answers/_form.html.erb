@@ -1,4 +1,4 @@
-<%= form_with model: [@question, @answer] do |form| %>
+<%= form_with model: [:admin, @question, @answer] do |form| %>
 
   <p>
     <%= form.label :body %><br>
@@ -14,5 +14,5 @@
 <% end %>
 
 <p>
-  <%= link_to "Назад", question_path(@answer.question_id) %>
+  <%= link_to "Назад", admin_question_path(@answer.question_id) %>
 </p>
