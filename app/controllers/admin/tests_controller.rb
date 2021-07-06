@@ -1,5 +1,5 @@
 class Admin::TestsController < Admin::BaseController
-  before_action :find_test, only: %i[show start destroy edit update]
+  before_action :find_test, only: %i[show destroy edit update]
 
   def index
     @tests = Test.all
@@ -7,18 +7,13 @@ class Admin::TestsController < Admin::BaseController
 
   def show; end
 
-  def start
-    current_user.tests.push(@test)
-    redirect_to current_user.test_taker(@test)
-  end
-
   def new
     @test = Test.new
   end
 
   def create
     @test = Test.new(test_params)
-    @test.author_id = current_user.id
+    @test.author = current_user
 
     if @test.save
       redirect_to admin_test_path(@test)
