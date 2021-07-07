@@ -46,7 +46,8 @@ ru:
       updated: "Ваша учётная запись успешно изменена."
       updated_but_not_signed_in: "Ваш аккаунт успешно изменен, но так как ваш пароль изменился, нужно войти снова."
     sessions:
-      signed_in: "Привет, %{username}!"
+      signed_in: "Вход в систему выполнен"
+      signed_in_with_name: "Привет, %{name}!"
       signed_out: "Выход из системы выполнен."
       already_signed_out: "Выход из системы выполнен."
     unlocks:
