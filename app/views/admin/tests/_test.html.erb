@@ -1,0 +1,12 @@
+<tr>
+  <td><%= link_to test.title, admin_test_path(test.id) %></td>
+  <td align='center'><%= test.level %></td>
+  <td align='center'><%= test.questions.count %></td>
+  <td><%= link_to "Изменить", edit_admin_test_path(test) %></td>
+  <td>
+    <%= link_to "Удалить",
+                admin_test_path(test),
+                method: :delete,
+                data: { confirm: "Вы уверенны?" } %>
+  </td>
+</tr>
