@@ -1,2 +1,7 @@
 ru:
   hello: "Hello world"
+
+  test_takers:
+    gist:
+      success: 'Gist успешно сохранен'
+      failure: 'Не удалось сохранть gist'

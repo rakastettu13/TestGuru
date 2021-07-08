@@ -13,5 +13,6 @@
     </p>
   <% end %>
 
+  <p><%= link_to 'Создать gist с текущим вопросом', gist_test_taker_path(@test_taker), method: :post %></p>
   <p><%= form.submit 'Следующий вопрос' %></p>
 <% end %>
