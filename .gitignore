@@ -38,3 +38,5 @@ yarn-debug.log*
 config/database.yml
 
 .rubocop.yml
+
+/config/credentials/development.key
