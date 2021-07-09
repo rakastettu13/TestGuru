@@ -3,5 +3,5 @@ ru:
 
   test_takers:
     gist:
-      success: 'Gist успешно сохранен'
+      success: <a href=%{url} target="_blank" rel=nofollow>Gist</a> успешно сохранен
       failure: 'Не удалось сохранть gist'
