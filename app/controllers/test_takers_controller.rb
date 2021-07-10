@@ -1,5 +1,5 @@
 class TestTakersController < ApplicationController
-  before_action :set_test_taker, only: %i[show result update gist]
+  before_action :set_test_taker, only: %i[show result update]
 
   def show; end
 
@@ -13,18 +13,6 @@ class TestTakersController < ApplicationController
     else
       render :show
     end
-  end
-
-  def gist
-    result = GistQuestionService.new(@test_taker.current_question).call
-
-    flash_options = if result[:success]
-                      @test_taker.current_question.gists.create(user: current_user, url: result[:url])
-                      { notice: t('.success', url: result[:url]) }
-                    else
-                      { alert: t('.failure') }
-                    end
-    redirect_to @test_taker, flash_options
   end
 
   private

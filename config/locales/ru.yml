@@ -4,7 +4,7 @@ ru:
   description: 'Вопрос к тесту "%{title}" от TestGuru'
   file: 'test-guru-question.txt'
 
-  test_takers:
-    gist:
+  gists:
+    create:
       success: <a href=%{url} target="_blank" rel=nofollow>Gist</a> успешно сохранен
       failure: 'Не удалось сохранть gist'
