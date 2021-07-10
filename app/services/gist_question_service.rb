@@ -1,4 +1,6 @@
 class GistQuestionService
+  Result = Struct.new(:success?, :url)
+
   def initialize(question)
     @question = question
     @test = @question.test
@@ -7,14 +9,14 @@ class GistQuestionService
 
   def call
     gist = @client.create_gist(gist_params)
-    { success: success?, url: gist.html_url }
+    Result.new(success?, gist.html_url)
   end
+
+  private
 
   def success?
     @client.last_response.status == 201
   end
-
-  private
 
   def gist_params
     {
@@ -28,9 +30,7 @@ class GistQuestionService
   end
 
   def gist_content
-    content = [@question.body]
-    content += @question.answers.pluck(:body)
-    content.join("\n")
+    [@question.body, *@question.answers.pluck(:body)].join("\n")
   end
 
   def github_access_token
