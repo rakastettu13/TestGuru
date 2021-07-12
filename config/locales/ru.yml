@@ -1,2 +1,10 @@
 ru:
   hello: "Hello world"
+
+  description: 'Вопрос к тесту "%{title}" от TestGuru'
+  file: 'test-guru-question.txt'
+
+  gists:
+    create:
+      success: <a href=%{url} target="_blank" rel=nofollow>Gist</a> успешно сохранен
+      failure: 'Не удалось сохранть gist'

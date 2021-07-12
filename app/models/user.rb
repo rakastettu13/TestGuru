@@ -7,9 +7,14 @@ class User < ApplicationRecord
          :rememberable,
          :validatable
 
-  has_many :author_tests, class_name: 'Test', inverse_of: 'author', foreign_key: 'author_id', dependent: :destroy
+  has_many :author_tests, class_name: 'Test',
+                          inverse_of: 'author',
+                          foreign_key: 'author_id',
+                          dependent: :destroy
+
   has_many :test_takers, dependent: :destroy
   has_many :tests, through: :test_takers
+  has_many :gists, dependent: :destroy
 
   validates :name, presence: true
   validates :email, presence: true, uniqueness: true, format: { with: URI::MailTo::EMAIL_REGEXP }
