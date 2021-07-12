@@ -127,6 +127,11 @@ GEM
     nio4r (2.5.7)
     nokogiri (1.11.5-x86_64-linux)
       racc (~> 1.4)
+    octicons (14.2.2)
+    octicons_helper (14.2.2)
+      actionview
+      octicons (= 14.2.2)
+      railties
     octokit (4.21.0)
       faraday (>= 0.9)
       sawyer (~> 0.8.0, >= 0.5.3)
@@ -244,6 +249,7 @@ DEPENDENCIES
   devise (~> 4.7)
   jbuilder (~> 2.7)
   listen (~> 3.3)
+  octicons_helper
   octokit (~> 4.0)
   pg (~> 1.1)
   puma (~> 5.0)
