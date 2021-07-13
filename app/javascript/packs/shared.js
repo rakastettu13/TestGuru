@@ -1,4 +1,4 @@
-import {Sorter} from "utilities/sorting/sorter"
+import {Sorter} from "utilities/sorter"
 
 document.addEventListener("turbolinks:load", () => {
   let control = document.querySelector(".sort-by-title");
