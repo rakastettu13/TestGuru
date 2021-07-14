@@ -6,10 +6,9 @@ export class Sorter {
   }
 
   sortTable () {
-    let sortedTable = document.createElement("table");
-    let sortedRows = this.#sortRows()
+    const sortedTable = document.createElement("table");
+    const sortedRows = this.#sortRows()
 
-    sortedTable.classList.add("table");
     sortedTable.append(this.rows[0]);
     sortedRows.forEach((row) => {
       sortedTable.append(row);
@@ -19,7 +18,7 @@ export class Sorter {
   }
 
   #sortRows() {
-    let sortedRows = Array.from(this.rows).slice(1, this.rows.length);
+    const sortedRows = Array.from(this.rows).slice(1, this.rows.length);
 
     if(this.#hiddenCheck("up")) {
       sortedRows.sort(this.#compareRowsAsc);
@@ -42,8 +41,8 @@ export class Sorter {
   }
 
   #compareRowsAsc(row1, row2) {
-    let title1 = row1.querySelector("td").textContent;
-    let title2 = row2.querySelector("td").textContent;
+    const title1 = row1.querySelector("td").textContent;
+    const title2 = row2.querySelector("td").textContent;
 
     return title1.localeCompare(title2);
   }
