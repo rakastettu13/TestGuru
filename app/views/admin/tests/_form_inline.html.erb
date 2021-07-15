@@ -1,0 +1,4 @@
+<%= form_with model: [:admin, test], url: update_inline_admin_test_path(test), local:true  do |form| %>
+  <%= form.text_field :title %>
+  <%= form.submit %>
+<% end %>
