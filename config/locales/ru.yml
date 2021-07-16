@@ -4,6 +4,18 @@ ru:
   description: 'Вопрос к тесту "%{title}" от TestGuru'
   file: 'test-guru-question.txt'
 
+  activerecord:
+    attributes:
+      test:
+        title: 'Название'
+        
+    errors:
+      messages:
+        blank: ' теста не может быть пустым'
+      models:
+        test:
+          unique: ' и уровень должны быть уникальными'
+
   gists:
     create:
       success: <a href=%{url} target="_blank" rel=nofollow>Gist</a> успешно сохранен
