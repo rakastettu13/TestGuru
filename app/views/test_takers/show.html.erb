@@ -13,6 +13,8 @@
     </p>
   <% end %>
 
+<%= render 'progress_bar' %>
+
   <p><%= link_to 'Создать gist с текущим вопросом', test_taker_gists_path(@test_taker), method: :post %></p>
   <p><%= form.submit 'Следующий вопрос' %></p>
 <% end %>

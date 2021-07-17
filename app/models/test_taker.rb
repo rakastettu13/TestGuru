@@ -19,6 +19,10 @@ class TestTaker < ApplicationRecord
     100 * correct_questions / test.questions.count
   end
 
+  def percentage_of_progress
+    100 * (current_question_number - 1) / test.questions.count
+  end
+
   def successful?
     percentage_of_passing >= 85
   end

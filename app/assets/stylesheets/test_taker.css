@@ -1,0 +1,19 @@
+.grey-bar {
+  background-color: Silver;
+  width: 300px;
+  display: flex;
+}
+
+.red-bar {
+  background-color: Tomato;
+  width: 0%;
+  display: inline-block;
+  text-align: right;
+}
+
+.green-bar {
+  background-color: LimeGreen;
+  width: 0%;
+  display: inline-block;
+  text-align: right;
+}
