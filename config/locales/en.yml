@@ -4,6 +4,18 @@ en:
   description: 'A question about %{title} from TestGuru'
   file: 'test-guru-question.txt'
 
+  activerecord:
+    attributes:
+      test:
+        title: 'Title'
+
+    errors:
+      messages:
+        blank: 'The test title cannot be empty'
+      models:
+        test:
+          unique: 'The test with this name and level already exists'
+
   gists:
     create:
       success: <a href=%{url} target="_blank" rel=nofollow>Gist</a> created
