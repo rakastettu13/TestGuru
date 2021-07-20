@@ -16,6 +16,8 @@ class Test < ApplicationRecord
   scope :hard,   -> { by_level(5...Float::INFINITY) }
   scope :by_category, ->(category) { joins(:category).where(categories: { title: category }).order(title: :desc) }
   scope :takers_by_level, ->(user, level) { joins(:test_takers).by_level(level).where(test_takers: { user: user }) }
+  scope :passed, -> { where(test_takers: { successfully: true }) }
+  scope :passed_after, ->(time) { passed.where(test_takers: { updated_at: (time...Time.current) }) }
 
   def self.title_array_by_category(category)
     by_category(category).pluck(:title)

@@ -1,0 +1,2 @@
+module Specifications::Badges
+end
