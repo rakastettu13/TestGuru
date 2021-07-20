@@ -10,6 +10,7 @@ module ApplicationHelper
   def user_links
     if user_signed_in?
       tag.b("Welcome, #{current_user.name} Guru!") +
+        link_to('Бейджи', badges_path) +
         link_to('Выйти',
                 destroy_user_session_path,
                 method: :delete,

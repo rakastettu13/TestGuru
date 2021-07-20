@@ -1,0 +1,14 @@
+<h1>Ваши бейджи</h1>
+
+<p><%= link_to 'Все бейджи', badges_path %></p>
+
+<table>
+  <tr>
+    <th>
+      Название
+    </th>
+    <th>Описание</th>
+  </tr>
+
+  <%= render @badges %>
+</table>
