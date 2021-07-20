@@ -1,0 +1,33 @@
+<%= form_with model: [:admin, @badge], local:true  do |form| %>
+
+  <p>
+    <%= form.label :title %><br>
+    <%= form.text_field :title, id: :badge_title %><br>
+  </p>
+
+  <p>
+    <%= form.label :description %><br>
+    <%= form.text_field :description, id: :badge_description %><br>
+  </p>
+
+  <p>
+    <%= form.label :rule %><br>
+    <%= form.collection_select :rule, Badge.all, :rule, :rule, prompt: true %><br>
+  </p>
+
+  <p>
+    <%= form.label :rule_value %><br>
+    <%= form.text_field :rule_value, id: :badge_rule_value %><br>
+  </p>
+
+  <p>
+    <%= form.label :image_url %><br>
+    <%= form.text_field :image_url, id: :badge_image_url %><br>
+  </p>
+
+  <p><%= form.submit %></p>
+<% end %>
+
+<p>
+  <%= link_to "Назад", admin_badges_path %>
+</p>
