@@ -18,7 +18,6 @@ class TestTaker < ApplicationRecord
 
   def completed!
     self.successfully = successful?
-    BadgeIssuingService.call(self)
   end
 
   def percentage_of_passing
