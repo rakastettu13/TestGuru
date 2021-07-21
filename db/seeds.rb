@@ -8,7 +8,7 @@
 
 # Category.destroy_all
 # User.destroy_all
-
+# Badge.destroy_all
 categories = Category.create!([{ title: 'Первая категория' }, { title: 'Вторая категория' }])
 
 users = User.create!([{ name: 'Имя 1', email: 'name1@email.com', password: '111111' },
@@ -54,3 +54,19 @@ TestTaker.create!([{ user: users[0], test: tests[1] },
                    { user: users[1], test: tests[0] },
                    { user: users[2], test: tests[1] },
                    { user: users[2], test: tests[3] }])
+
+Badge.create!([{ title: "Гуру #{categories[0].title}",
+                 description: "Пройдите все тесты в #{categories[0].title}",
+                 rule: 'all_tests_from_the_category',
+                 rule_value: categories[0].id.to_s,
+                 image_url: 'app/assets/images/badges/image1' },
+               { title: "Гуру #{tests[0].level} уровня",
+                 description: "Пройдите все тесты #{tests[0].level} уровня",
+                 rule: 'all_tests_of_the_level',
+                 rule_value: tests[0].level.to_s,
+                 image_url: 'app/assets/images/badges/image2' },
+               { title: "#{tests[0].title} гуру",
+                 description: "Пройдите #{tests[0].title} с первой попытки",
+                 rule: 'test_on_first_attempt',
+                 rule_value: tests[0].id.to_s,
+                 image_url: 'app/assets/images/badges/image3' }])

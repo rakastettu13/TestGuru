@@ -1,0 +1,15 @@
+<tr>
+  <td>
+    <%= link_to badge.title, admin_badge_path(badge) %>
+  </td>
+  <td><%= badge.description.truncate(28) %></td>
+  <td><%= "#{badge.rule}: #{badge.rule_value}" %></td>
+  <td><%= link_to "Изменить", edit_admin_badge_path(badge) %>
+  </td>
+  <td>
+    <%= link_to "Удалить",
+                admin_badge_path(badge),
+                method: :delete,
+                data: { confirm: "Вы уверенны?" } %>
+  </td>
+</tr>

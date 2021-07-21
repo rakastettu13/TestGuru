@@ -1,0 +1,15 @@
+<h1>Бейджи</h1>
+
+<table>
+  <tr>
+    <th>
+      Название
+    </th>
+    <th>Описание</th>
+    <th>Правило</th>
+  </tr>
+
+  <%= render @badges %>
+</table>
+
+<p><%= link_to "Создать новый бейдж", new_admin_badge_path %><p>

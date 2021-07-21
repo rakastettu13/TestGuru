@@ -11,6 +11,12 @@ Rails.application.routes.draw do
     end
   end
 
+  resources :badges, only: :index do
+    collection do
+      get :issued
+    end
+  end
+
   resources :test_takers, only: %i[show update] do
     resources :gists, only: :create
     member do
@@ -20,6 +26,7 @@ Rails.application.routes.draw do
 
   namespace :admin do
     resources :gists, only: :index
+    resources :badges
     resources :tests do
       patch :update_inline, on: :member
       resources :questions, shallow: true, except: :index do

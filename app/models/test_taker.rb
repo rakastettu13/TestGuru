@@ -5,6 +5,7 @@ class TestTaker < ApplicationRecord
 
   before_validation :before_validation_set_first_question, on: :create
   before_validation :before_validation_set_next_question, on: :update
+  before_validation :before_validation_check_completion, on: :update
 
   def accept!(answer_ids)
     self.correct_questions += 1 if correct_answer?(answer_ids)
@@ -13,6 +14,10 @@ class TestTaker < ApplicationRecord
 
   def completed?
     current_question.nil?
+  end
+
+  def completed!
+    self.successfully = successful?
   end
 
   def percentage_of_passing
@@ -49,5 +54,9 @@ class TestTaker < ApplicationRecord
   def before_validation_set_next_question
     self.current_question = next_question
     self.current_question_number += 1
+  end
+
+  def before_validation_check_completion
+    completed! if completed?
   end
 end
