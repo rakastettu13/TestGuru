@@ -20,3 +20,7 @@ en:
     create:
       success: <a href=%{url} target="_blank" rel=nofollow>Gist</a> created
       failure: 'Failed to create gist'
+
+  test_takers:
+    update:
+      out_of_time: 'Time is up'

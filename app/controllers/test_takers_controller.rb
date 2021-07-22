@@ -8,8 +8,9 @@ class TestTakersController < ApplicationController
   def update
     @test_taker.accept!(params[:answer_ids])
 
-    if @test_taker.completed?
-
+    if @test_taker.out_of_time?
+      redirect_to result_test_taker_path(@test_taker), notice: t('.out_of_time')
+    elsif @test_taker.completed?
       BadgeIssuingService.call(@test_taker)
       redirect_to result_test_taker_path(@test_taker)
     else
