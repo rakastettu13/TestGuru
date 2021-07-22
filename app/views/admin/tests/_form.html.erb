@@ -17,6 +17,11 @@
     <%= form.collection_select :category_id, Category.all, :id, :title, prompt: true %><br>
   </p>
 
+  <p>
+    <%= form.label :time_limit %><br>
+    <%= form.number_field :time_limit, id: :test_time_limit %><br>
+  </p>
+
   <p><%= form.submit %></p>
 <% end %>
 
