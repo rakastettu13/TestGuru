@@ -1,4 +1,7 @@
 import {ProgressBar} from "utilities/progress_bar";
+import {Timer} from "utilities/timer";
+
+Timer.start();
 
 document.addEventListener("turbolinks:load", () => {
   const redBar = document.getElementById("progress-bar");
