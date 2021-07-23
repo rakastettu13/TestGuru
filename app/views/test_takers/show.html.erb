@@ -2,6 +2,8 @@
 
 <h2><%= @test_taker.current_question.body %></h2>
 
+<%= tag.p id: 'time-limit', data: { limit: @test_taker.test.time_limit, start: @test_taker.created_at.to_i } %>
+
 <p>Текущий вопрос: <%= @test_taker.current_question_number %></p>
 <p>Всего вопросов: <%= @test_taker.test.questions.count %></p>
 

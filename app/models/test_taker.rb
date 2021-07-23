@@ -13,11 +13,18 @@ class TestTaker < ApplicationRecord
   end
 
   def completed?
-    current_question.nil?
+    current_question.nil? || out_of_time?
   end
 
   def completed!
     self.successfully = successful?
+  end
+
+  def out_of_time?
+    return unless test.time_limit
+
+    duration = Time.current - created_at
+    (duration - test.time_limit * 60).positive?
   end
 
   def percentage_of_passing

@@ -9,7 +9,6 @@ class TestTakersController < ApplicationController
     @test_taker.accept!(params[:answer_ids])
 
     if @test_taker.completed?
-
       BadgeIssuingService.call(@test_taker)
       redirect_to result_test_taker_path(@test_taker)
     else

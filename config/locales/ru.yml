@@ -8,7 +8,7 @@ ru:
     attributes:
       test:
         title: 'Название'
-        
+
     errors:
       messages:
         blank: ' теста не может быть пустым'
@@ -20,3 +20,7 @@ ru:
     create:
       success: <a href=%{url} target="_blank" rel=nofollow>Gist</a> успешно сохранен
       failure: 'Не удалось сохранть gist'
+
+  test_takers:
+    update:
+      out_of_time: 'Время вышло!'
