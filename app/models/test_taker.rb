@@ -13,7 +13,7 @@ class TestTaker < ApplicationRecord
   end
 
   def completed?
-    current_question.nil?
+    current_question.nil? || out_of_time?
   end
 
   def completed!

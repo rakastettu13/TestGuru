@@ -2,7 +2,7 @@ export class Timer {
   static start() {
     const timeField = document.getElementById("time-limit");
 
-    if (timeField) {
+    if (timeField?.dataset.limit) {
       new Timer(timeField).start();
     }
   }
